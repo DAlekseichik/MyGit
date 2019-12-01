@@ -1,0 +1,147 @@
+﻿<TITLE> Панель запуска </TITLE>
+<HTA:APPLICATION Id="Panel" APPLICATIONNAME="Панель запуска" SCROLL="no" SINGLEINSTANCE="yes" WINDOWSTATE="NORMAL"
+        SELECTION="NO" CONTEXTMENU="NO" BORDER="Thin" BORDERStyle="Normal" INNERBORDER="YES" NOWRAP MAXIMIZEBUTTON="NO"
+        MINIMIZEBUTTON="NO" SYSMENU="NO" ICON="./img/Logo.ico">
+
+        <HEAD>
+
+                <link rel="icon" href="./img/Logo.ico">
+
+
+                <style type="text/css">
+                        .backg {
+                                background-color: lightgrey;
+
+                        }
+
+                        .btn {
+
+                                width: 128px;
+                                height: 128px;
+                                color: lightgreen;
+                                font-weight: bold;
+
+                        }
+
+                        img {
+                                box-shadow: 3px 3px 8px 0px rgba(0, 0, 0, 0.3);
+                                float: left;
+                        }
+
+
+                        #button_1 {
+                                background: url('./img/dmw.jpg');
+
+                        }
+
+                        #button_logout {
+                                background: url('./img/logout.png');
+
+                        }
+                        #button_exit {
+                                background: url('./img/exit.png');
+
+                        }
+                </STYLE>
+
+        </HEAD>
+
+        <SCRIPT LANGUAGE="VBScript">
+                Option Explicit
+                Dim objShell
+                Set objShell = CreateObject("WScript.Shell")
+                '-- Set Window Size and Position 
+
+                self.Focus
+                self.resizeTo 800, 600
+                self.MoveTo screen.width / 2 - 800 / 2, screen.height / 3 - 600 / 2
+
+                Sub Window_Onload    ' SYSTEM NAME 
+
+
+
+                '  MsgBox "Hello!!!"
+
+                End Sub
+
+
+
+
+                Sub vbButton1
+                ' MAIN
+                '
+                ' 0 = hidden
+                ' 9 = visible
+                ' True  = wait the end of operation
+
+
+                '-- Run the command  
+
+                MsgBox "Нажата кнопка 1"
+                objShell.Run "Button1.cmd", 0, True
+                self.close()
+
+
+                'self.close
+
+                End Sub
+
+                Sub ExitHTA
+                self.close()
+                End Sub
+
+        </SCRIPT>
+
+        <!-- HTML layout -->
+
+
+        <BODY class="backg">
+                <DIV>
+
+
+
+                        <table>
+
+                                <tr>
+                                        <th>
+
+                                                <div> SOME TEXT
+                                                        <input type="button" name="run_button" id="button_1" value=""
+                                                                class="btn" onClick="vbButton1">
+                                                </div>
+
+                                        </th>
+
+                                        <th>
+                                                <div> SOME TEXT
+                                                        <input type="button" name="run_button" id="button_1" value=""
+                                                                class="btn" onClick="vbButton1">
+                                                </div>
+
+                                        </th>
+                                        <th>
+                                                <div> SOME TEXT
+                                                        <input type="button"
+                                                                name="run_button" id="button_logout" value="" class="btn"
+                                                                onClick="vbButton1">
+                                                </div>
+                                        </th>
+                                        <th>
+                                                <div> EXIT
+                                                        <input type="button"
+                                                                name="run_button" id="button_exit" value="" class="btn"
+                                                                onClick="vbButton1">
+                                                </div>
+                                        </th>
+
+
+                                </tr>
+
+                                </tr>
+                        </table>
+
+
+                </DIV>
+        </BODY>
+
+        </HTML>
